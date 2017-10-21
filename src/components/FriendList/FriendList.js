@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './FriendList.css';
-import FriendListItem from '../FriendListItem/FriendListItem';
-import classnames from 'classnames'
+import FriendListItem from '../FriendListItem/FriendListItem'
+import Paginator from '../Paginator/Paginator'
 
 class FriendList extends Component {
   constructor() {
@@ -10,15 +11,15 @@ class FriendList extends Component {
       currentPage: 1,
       friendsPerPage: 2
     }
-    this.handleClick = this.handleClick.bind(this);
+    this.handlePageNumberClick = this.handlePageNumberClick.bind(this)
   }
 
-
-  handleClick(event) {
+  handlePageNumberClick(event) {
     this.setState({
       currentPage: Number(event.target.id)
-    });
+    })
   }
+
   render() {
     const { currentPage, friendsPerPage } = this.state
     const { friends } = this.props
@@ -38,35 +39,15 @@ class FriendList extends Component {
       );
     })
 
-    // Logic for displaying page numbers
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(friends.length / friendsPerPage); i++) {
-      pageNumbers.push(i);
-    }
-
-    const renderPageNumbers = pageNumbers.map(number => {
-      let pageNumberStyle = classnames('pageNumber', {
-        'pageNumber--active': currentPage === number
-      })
-      return (
-        <li
-          className={pageNumberStyle}
-          key={number}
-          id={number}
-          onClick={this.handleClick}>
-          {number}
-        </li>
-      )
-    })
-
     return (
       <div>
         <ul className={'friendList'}>
           {renderFriends}
         </ul>
-        <ul className={'pageNumbers'}>
-          {renderPageNumbers}
-        </ul>
+        <Paginator totalContent={friends.length}
+          onPageNumberChange={this.handlePageNumberClick}
+          contentPerPage={friendsPerPage}
+          currentPage={currentPage} />
       </div>
     )
   }

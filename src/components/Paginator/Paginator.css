@@ -1,0 +1,22 @@
+.pageNumbers {
+    list-style: none;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.pageNumber {
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    line-height: 20px;
+    user-select: none;
+    cursor: pointer;
+    opacity: .5
+}
+
+.pageNumber--active {
+    font-size: 24px;
+    opacity: 1
+}
