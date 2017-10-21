@@ -8,6 +8,7 @@ describe('<FriendListItem />', () => {
     const deleteFriendCallback = jest.fn()
     let props = {
         name: 'Kiran',
+        sex: 'male',
         deleteFriend: jest.fn(),
         starFriend: jest.fn(),
         starred: false,

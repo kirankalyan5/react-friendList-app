@@ -1,13 +1,26 @@
+:local(.wrapper) {
+  background-color: #ebebeb;
+  padding: 12px 8px;
+}
+
 :local(.addFriendInput) {
   border-radius: 0;
-  border-color: #ABAAAA;
-  border-left: 0;
-  border-right: 0;
+  border-color: #5C75B0;
+  margin: 4px;
 }
 
 :local(.radioGroup) {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 8px;
   background-color: #ebebeb
+}
+
+:local(.btnAction), :local(.btnAction):active, :local(.btnAction):focus, :local(.btnAction):hover {
+  margin: 4px;
+  border-color: #5C75B0;
+  color: #5C75B0;
+}
+
+:local(.fieldWrapper) {
+  display: flex;
 }

@@ -22,6 +22,10 @@
   margin-right: 5px;
   color: #5C75B0;
 }
+.fa-male, .fa-female {
+  font-size: 20px;
+  margin-right: 8px;
+}
 
 button:focus {
   outline: 0 !important;

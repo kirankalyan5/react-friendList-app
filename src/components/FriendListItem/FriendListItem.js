@@ -7,7 +7,12 @@ const FriendListItem = (props) => {
   return (
     <li className={styles.friendListItem}>
       <div className={styles.friendInfos}>
-        <div><span id='friendName'>{props.name}</span></div>
+        <div>
+          <i className={classnames('fa', {
+            'fa-male': props.sex === 'male',
+            'fa-female': props.sex === 'female'
+          })} />
+          <span id='friendName'>{props.name}</span></div>
         <div>
           <small>xx friends in common</small>
         </div>
@@ -35,6 +40,7 @@ const FriendListItem = (props) => {
 FriendListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  sex: PropTypes.string.isRequired,
   starred: PropTypes.bool,
   starFriend: PropTypes.func.isRequired,
   deleteFriend: PropTypes.func.isRequired

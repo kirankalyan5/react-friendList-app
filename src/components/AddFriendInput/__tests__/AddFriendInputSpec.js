@@ -13,13 +13,13 @@ describe('<AddFriendInput />', () => {
     })
 
     it('Should not trigger callback when keyDown is not enter key and if value is empty', () => {
-        Component.setState({name: ''})
+        Component.setState({name: '', sex: ''})
         Component.find('.form-control').simulate('keyDown', { which: 13})
         expect(callback).not.toBeCalled()
     })
 
     it('Should trigger callback when keyDown is enter key', () => {
-        Component.setState({name: 'Kiran'})
+        Component.setState({name: 'Kiran', sex: 'male'})
         Component.find('.form-control').simulate('keyDown', { which: 13})
         expect(callback).toBeCalledWith({"name": "Kiran", "sex": "male"})
     })

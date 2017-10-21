@@ -8,7 +8,7 @@ const initialState = {
       starred: true
     },
     {
-      name: 'Abraham Lincoln',
+      name: 'Sara george',
       sex: 'female',
       starred: false
     },
