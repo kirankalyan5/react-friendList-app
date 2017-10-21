@@ -33,13 +33,15 @@ class AddFriendInput extends Component {
       <div>
         <div className={styles.radioGroup}>
           <RadioButton id='male'
+            value="male"
             label="Male"
             isChecked={this.state.sex === 'male'}
-            onCheck={() => {this.setState({sex: 'male'}) }} />
+            onCheck={(value) => {this.setState({sex: value}) }} />
           <RadioButton id='female'
+            value="female"
             label="Female"
             isChecked={this.state.sex === 'female'}
-            onCheck={() => {this.setState({sex: 'female'}) }} />
+            onCheck={(value) => {this.setState({sex: value}) }} />
         </div>
         <input
           type="text"
