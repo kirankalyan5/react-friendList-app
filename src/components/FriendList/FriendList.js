@@ -23,10 +23,12 @@ class FriendList extends Component {
   render() {
     const { currentPage, friendsPerPage } = this.state
     const { friends } = this.props
+    const reverserdArray = friends.slice().reverse()
+
     // Logic for displaying friends per page
     const indexOfLastFriend = currentPage * friendsPerPage
     const indexOfFirstFriend = indexOfLastFriend - friendsPerPage
-    const currentFriends = friends.slice(indexOfFirstFriend, indexOfLastFriend)
+    const currentFriends = reverserdArray.slice(indexOfFirstFriend, indexOfLastFriend)
 
     const renderFriends = currentFriends.map((friend, index) => {
       return (
