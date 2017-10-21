@@ -1,25 +1,4 @@
-.friendList {
+:local(.friendList) {
   padding-left: 0;
   margin-bottom: 0;
-}
-
-.pageNumbers {
-  list-style: none;
-  margin-bottom: 0;
-  display: flex;
-  justify-content: center;
-  padding: 0
-}
-
-.pageNumbers li {
-  color: white;
-  padding: 8px;
-  font-size: 16px;
-  line-height: 20px;
-  user-select: none;
-  cursor: pointer;
-}
-
-.pageNumbers .pageNumber--active {
-  font-size: 24px;
 }

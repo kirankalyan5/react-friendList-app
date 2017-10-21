@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './FriendList.css';
+import styles from './FriendList.css';
 import FriendListItem from '../FriendListItem/FriendListItem'
 import Paginator from '../Paginator/Paginator'
 
@@ -41,7 +41,7 @@ class FriendList extends Component {
 
     return (
       <div>
-        <ul className={'friendList'}>
+        <ul className={styles.friendList}>
           {renderFriends}
         </ul>
         <Paginator totalContent={friends.length}
