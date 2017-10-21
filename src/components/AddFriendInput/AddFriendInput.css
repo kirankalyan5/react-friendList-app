@@ -4,3 +4,10 @@
   border-left: 0;
   border-right: 0;
 }
+
+:local(.radioGroup) {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 8px;
+  background-color: #ebebeb
+}
