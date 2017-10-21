@@ -1,6 +1,6 @@
 # react-friendList-app
 
-# Usage
+## Usage
 
 ```
 npm install
