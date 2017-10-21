@@ -6,10 +6,12 @@ describe('Friends list reducer', () => {
         friendsById: [
             {
                 name: 'Theodore Roosevelt',
+                sex: 'male',
                 starred: true
             },
             {
                 name: 'Abraham Lincoln',
+                sex: 'female',
                 starred: false
             }
         ]
@@ -20,10 +22,12 @@ describe('Friends list reducer', () => {
                 "friendsById": [
                     {
                         "name": "Theodore Roosevelt",
+                        sex: 'male',
                         "starred": true
                     },
                     {
                         "name": "Abraham Lincoln",
+                        sex: 'female',
                         "starred": false
                     }
                 ]
@@ -32,15 +36,18 @@ describe('Friends list reducer', () => {
     })
 
     it('Should handle ADD_FRIEND', () => {
-
+        const details = {
+            name: 'kumar',
+            sex: 'male'
+        }
         expect(
             reducer(initialState, {
                 type: types.ADD_FRIEND,
-                name: 'kumar'
+                details
             })
         ).toEqual(
             {
-                "friendsById": [{ "name": "Theodore Roosevelt", "starred": true }, { "name": "Abraham Lincoln", "starred": false }, { "name": "kumar", "starred": false }]
+                "friendsById": [{ "name": "Theodore Roosevelt", "sex": "male", "starred": true }, { "name": "Abraham Lincoln", "sex": "female", "starred": false }, { "name": "kumar", "sex": "male", "starred": false }]
             }
             )
     })
@@ -54,7 +61,7 @@ describe('Friends list reducer', () => {
             })
         ).toEqual(
             {
-                "friendsById": [{ "name": "Abraham Lincoln", "starred": false }]
+                "friendsById": [{ "name": "Abraham Lincoln", "sex": "female", "starred": false }]
             }
             )
     })
@@ -67,7 +74,7 @@ describe('Friends list reducer', () => {
             })
         ).toEqual(
             {
-                "friendsById": [{ "name": "Theodore Roosevelt", "starred": true }, { "name": "Abraham Lincoln", "starred": true }]
+                "friendsById": [{ "name": "Theodore Roosevelt", "sex": "male", "starred": true }, { "name": "Abraham Lincoln", "sex": "female", "starred": true }]
             }
             )
     })

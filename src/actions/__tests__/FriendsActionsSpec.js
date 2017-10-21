@@ -3,12 +3,15 @@ import * as types from '../../constants/ActionTypes';
 
 describe('actions', () => {
     it('Should create an action to add a friend', () => {
-        const name = "Kiran"
+        const details = {
+            name: 'kumar',
+            sex: 'male'
+        }
         const expectedAction = {
             type: types.ADD_FRIEND,
-            name
+            details
         }
-        expect(actions.addFriend(name)).toEqual(expectedAction)
+        expect(actions.addFriend(details)).toEqual(expectedAction)
     })
 
     it('Should create an action to delete friend', () => {
