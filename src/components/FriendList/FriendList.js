@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './FriendList.css';
+import styles from './FriendList.css'
 import FriendListItem from '../FriendListItem/FriendListItem'
 import Paginator from '../Paginator/Paginator'
 
@@ -30,22 +30,20 @@ class FriendList extends Component {
     const indexOfFirstFriend = indexOfLastFriend - friendsPerPage
     const currentFriends = reverserdArray.slice(indexOfFirstFriend, indexOfLastFriend)
 
-    const renderFriends = currentFriends.map((friend, index) => {
-      return (
-        <FriendListItem
-          key={index}
-          id={index}
-          name={friend.name}
-          sex={friend.sex}
-          starred={friend.starred}
-          {...this.props.actions} />
-      );
-    })
-
     return (
       <div>
         <ul className={styles.friendList}>
-          {renderFriends}
+          {currentFriends.map((friend, index) => {
+            return (
+              <FriendListItem
+                key={index}
+                id={index}
+                name={friend.name}
+                sex={friend.sex}
+                starred={friend.starred}
+                {...this.props.actions} />
+            )
+          })}
         </ul>
         <Paginator totalContent={friends.length}
           onPageNumberChange={this.handlePageNumberClick}
@@ -60,6 +58,6 @@ class FriendList extends Component {
 FriendList.propTypes = {
   friends: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
-};
+}
 
-export default FriendList;
+export default FriendList

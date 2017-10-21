@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
+import React, { Component } from 'react'
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import RadioButton from '../RadioButton/RadioButton'
-import styles from './AddFriendInput.css';
+import styles from './AddFriendInput.css'
 
 class AddFriendInput extends Component {
 
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
     this.state = {
       name: '',
       sex: ''
-    };
+    }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPressSubmit = this.handleKeyPressSubmit.bind(this)
   }
 
   handleChange(e) {
-    this.setState({ name: e.target.value.trim() });
+    this.setState({ name: e.target.value.trim() })
   }
 
   handleKeyPressSubmit(e) {
-    const { name, sex } = this.state;
+    const { name, sex } = this.state
     if (name && sex && e.which === 13) {
       this.props.addFriend({ name, sex })
       this.setState({
@@ -33,7 +33,7 @@ class AddFriendInput extends Component {
   }
 
   handleSubmit() {
-    const { name, sex } = this.state;
+    const { name, sex } = this.state
     if(name && sex) {
       this.props.addFriend({ name, sex })
       this.setState({
@@ -81,6 +81,6 @@ class AddFriendInput extends Component {
 
 AddFriendInput.propTypes = {
   addFriend: PropTypes.func.isRequired
-};
+}
 
 export default AddFriendInput

@@ -15,7 +15,7 @@ describe('Friends list reducer', () => {
                 starred: false
             }
         ]
-    };
+    }
     it('Should return the initial state', () => {
         expect(reducer(initialState, {})).toEqual(
             {

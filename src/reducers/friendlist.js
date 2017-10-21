@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants/ActionTypes'
 
 const initialState = {
   friendsById: [
@@ -18,7 +18,7 @@ const initialState = {
       starred: false
     }
   ]
-};
+}
 
 export default function friends(state = initialState, action) {
   switch (action.type) {
@@ -33,22 +33,22 @@ export default function friends(state = initialState, action) {
             starred: false
           }
         ],
-      };
+      }
     case types.DELETE_FRIEND:
       return {
         ...state,
         friendsById: state.friendsById.filter((item, index) => index !== action.id)
-      };
+      }
     case types.STAR_FRIEND:
-      let friends = [...state.friendsById];
-      let friend = friends.find((item, index) => index === action.id);
-      friend.starred = !friend.starred;
+      let friends = [...state.friendsById]
+      let friend = friends.find((item, index) => index === action.id)
+      friend.starred = !friend.starred
       return {
         ...state,
         friendsById: friends
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }

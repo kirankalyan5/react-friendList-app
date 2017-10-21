@@ -1,7 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
+import React from 'react'
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import styles from './FriendListItem.css';
+import styles from './FriendListItem.css'
 
 const FriendListItem = (props) => {
   return (
@@ -44,6 +44,6 @@ FriendListItem.propTypes = {
   starred: PropTypes.bool,
   starFriend: PropTypes.func.isRequired,
   deleteFriend: PropTypes.func.isRequired
-};
+}
 
 export default FriendListItem

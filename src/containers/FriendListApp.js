@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import styles from './FriendListApp.css';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import styles from './FriendListApp.css'
+import { connect } from 'react-redux'
 
-import {addFriend, deleteFriend, starFriend} from '../actions/FriendsActions';
+import {addFriend, deleteFriend, starFriend} from '../actions/FriendsActions'
 import AddFriendInput from '../components/AddFriendInput/AddFriendInput'
 import FriendList from '../components/FriendList/FriendList'
 
 class FriendListApp extends Component {
 
   render () {
-    const { friendlist: { friendsById }} = this.props;
+    const { friendlist: { friendsById }} = this.props
 
     const actions = {
       addFriend: this.props.addFriend,
       deleteFriend: this.props.deleteFriend,
       starFriend: this.props.starFriend
-    };
+    }
 
     return (
       <div className={styles.friendListApp}>
@@ -23,7 +23,7 @@ class FriendListApp extends Component {
         <AddFriendInput addFriend={actions.addFriend} />
         <FriendList friends={friendsById} actions={actions} />
       </div>
-    );
+    )
   }
 }
 

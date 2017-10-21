@@ -5,7 +5,7 @@ import './Paginator.css'
 
 const Paginator = ({totalContent, contentPerPage, onPageNumberChange, currentPage}) => {
 
-    const pageNumbers = [];
+    const pageNumbers = []
     for (let i = 1; i <= Math.ceil(totalContent / contentPerPage); i++) {
         pageNumbers.push(i)
     }
