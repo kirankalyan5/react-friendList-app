@@ -43,4 +43,17 @@ describe('<AddFriendInput />', () => {
         Component.find('.btn').simulate('click')
         expect(Component.find('#error').length).toBe(0)
     })
+
+    it('Should set name and hasError to false if sex is not empty', () => {
+        Component.setState({name: '', sex: 'male'})
+        Component.find('.form-control').simulate('change', {target: {value: 'Kiran'}})
+        expect(Component.find('.form-control').props().value).toBe('Kiran')
+        expect(Component.find('#error').length).toBe(0)
+    })
+
+    it('Should trigger radio button callBack and set haserror to false if name is not empty ', () => {
+        Component.setState({name: 'Kiran', sex: ''})
+        Component.find('RadioButton').first().props().onCheck()
+        expect(Component.find('#error').length).toBe(0)
+    })
 })

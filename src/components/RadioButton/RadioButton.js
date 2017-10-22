@@ -25,13 +25,14 @@ const RadioButton = (props) => {
 }
 
 
+
 RadioButton.propTypes = {
     id: React.PropTypes.string,
     value: React.PropTypes.string,
     label: React.PropTypes.string,
     isChecked: React.PropTypes.bool.isRequired,
     onCheck: React.PropTypes.func.isRequired,
-    disabled: React.PropTypes.bool,
+    disabled: React.PropTypes.bool
 }
 
 RadioButton.defaultProps = {
