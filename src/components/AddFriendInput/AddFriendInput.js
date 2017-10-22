@@ -10,15 +10,29 @@ class AddFriendInput extends Component {
     super(props, context)
     this.state = {
       name: '',
-      sex: ''
+      sex: '',
+      hasError: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPressSubmit = this.handleKeyPressSubmit.bind(this)
+    this.handleRadioCheck = this.handleRadioCheck.bind(this)
+  }
+
+  handleRadioCheck(value) {
+    this.setState({sex: value})
+    if(this.state.name) {
+      this.setState({hasError: false})
+    }
   }
 
   handleChange(e) {
-    this.setState({ name: e.target.value.trim() })
+    this.setState({
+      name: e.target.value.trim()
+    })
+    if(this.state.sex) {
+      this.setState({hasError: false})
+    }
   }
 
   handleKeyPressSubmit(e) {
@@ -27,19 +41,23 @@ class AddFriendInput extends Component {
       this.props.addFriend({ name, sex })
       this.setState({
         name: '',
-        sex: ''
+        sex: '',
+        hasError: false
       })
     }
   }
 
   handleSubmit() {
     const { name, sex } = this.state
-    if(name && sex) {
+    if (name && sex) {
       this.props.addFriend({ name, sex })
       this.setState({
         name: '',
-        sex: ''
+        sex: '',
+        hasError: false
       })
+    } else {
+      this.setState({ hasError: true })
     }
   }
   render() {
@@ -50,12 +68,12 @@ class AddFriendInput extends Component {
             value="male"
             label="Male"
             isChecked={this.state.sex === 'male'}
-            onCheck={(value) => { this.setState({ sex: value }) }} />
+            onCheck={this.handleRadioCheck} />
           <RadioButton id='female'
             value="female"
             label="Female"
             isChecked={this.state.sex === 'female'}
-            onCheck={(value) => { this.setState({ sex: value }) }} />
+            onCheck={this.handleRadioCheck} />
         </div>
         <div className={styles.fieldWrapper}>
           <input
@@ -71,13 +89,13 @@ class AddFriendInput extends Component {
             <i className="fa fa-arrow-right" />
           </button>
         </div>
+        {this.state.hasError &&
+          <span className={styles.error}>Please enter the missing details</span>
+        }
       </div>
-
     )
   }
 }
-
-
 
 AddFriendInput.propTypes = {
   addFriend: PropTypes.func.isRequired

@@ -24,3 +24,9 @@
 :local(.fieldWrapper) {
   display: flex;
 }
+
+:local(.error) {
+  color: red;
+  font-size: 12px;
+  margin-left: 4px;
+}
