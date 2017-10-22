@@ -23,4 +23,24 @@ describe('<AddFriendInput />', () => {
         Component.find('.form-control').simulate('keyDown', { which: 13})
         expect(callback).toBeCalledWith({"name": "Kiran", "sex": "male"})
     })
+
+    it('Should display error messgae when name is missing on submit', () => {
+        Component.setState({name: 'Kiran', sex: ''})
+        Component.find('.btn').simulate('click')
+        expect(Component.find('#error')).toBeDefined()
+        expect(Component.find('#error').text()).toBe('Please enter the missing details')
+    })
+
+    it('Should display error messgae when sex is missing on submit', () => {
+        Component.setState({name: '', sex: 'male'})
+        Component.find('.btn').simulate('click')
+        expect(Component.find('#error')).toBeDefined()
+        expect(Component.find('#error').text()).toBe('Please enter the missing details')
+    })
+
+    it('Should not display error messgae submit when name & sex are filled', () => {
+        Component.setState({name: 'Kiran', sex: 'male'})
+        Component.find('.btn').simulate('click')
+        expect(Component.find('#error').length).toBe(0)
+    })
 })

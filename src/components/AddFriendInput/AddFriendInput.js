@@ -90,7 +90,10 @@ class AddFriendInput extends Component {
           </button>
         </div>
         {this.state.hasError &&
-          <span className={styles.error}>Please enter the missing details</span>
+          <span className={styles.error}
+            id='error'>
+            Please enter the missing details
+          </span>
         }
       </div>
     )
