@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './RadioButton.css'
 
 const RadioButton = (props) => {
@@ -27,12 +28,12 @@ const RadioButton = (props) => {
 
 
 RadioButton.propTypes = {
-    id: React.PropTypes.string,
-    value: React.PropTypes.string,
-    label: React.PropTypes.string,
-    isChecked: React.PropTypes.bool.isRequired,
-    onCheck: React.PropTypes.func.isRequired,
-    disabled: React.PropTypes.bool
+    id: PropTypes.string,
+    value: PropTypes.string,
+    label: PropTypes.string,
+    isChecked: PropTypes.bool.isRequired,
+    onCheck: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
 }
 
 RadioButton.defaultProps = {
