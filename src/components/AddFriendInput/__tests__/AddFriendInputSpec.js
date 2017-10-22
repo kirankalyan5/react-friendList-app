@@ -53,7 +53,8 @@ describe('<AddFriendInput />', () => {
 
     it('Should trigger radio button callBack and set haserror to false if name is not empty ', () => {
         Component.setState({name: 'Kiran', sex: ''})
-        Component.find('RadioButton').first().props().onCheck()
+        Component.find('RadioButton').first().props().onCheck('male')
         expect(Component.find('#error').length).toBe(0)
+        expect(Component.state().hasError).toBeFalsy()
     })
 })
