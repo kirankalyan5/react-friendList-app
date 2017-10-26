@@ -34,14 +34,18 @@ export default function friends(state = initialState, action) {
           }
         ],
       }
+
     case types.DELETE_FRIEND:
+      const reverserdArrayDelete = state.friendsById.slice().reverse()
       return {
         ...state,
-        friendsById: state.friendsById.filter((item, index) => index !== action.id)
+        friendsById: reverserdArrayDelete.filter((item, index) => index !== action.id)
       }
+
     case types.STAR_FRIEND:
       let friends = [...state.friendsById]
-      let friend = friends.find((item, index) => index === action.id)
+      const reverserdArray = friends.slice().reverse()
+      let friend = reverserdArray.find((item, index) => index === action.id)
       friend.starred = !friend.starred
       return {
         ...state,
